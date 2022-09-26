@@ -6,8 +6,7 @@ namespace AutomationRandom
         {
             InitializeComponent();
         }
-
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        public void ChooseFolder()
         {
 
         }
