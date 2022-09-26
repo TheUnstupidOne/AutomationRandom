@@ -108,7 +108,7 @@ namespace AutomationRandom
         {
             Variables.noCountries = checkCountries.Checked;
         }
-        private void EnginePosition_Check(object sender, EventArgs e)
+        private void EngineType_Check(object sender, EventArgs e)
         {
             Variables.noEngineType = checkEngineType.Checked;
         }

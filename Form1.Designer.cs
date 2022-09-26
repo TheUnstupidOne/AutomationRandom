@@ -91,7 +91,7 @@
             this.checkEngine.TabIndex = 1;
             this.checkEngine.Text = "Include Engine position";
             this.checkEngine.UseVisualStyleBackColor = true;
-            this.checkEngine.CheckedChanged += new System.EventHandler(this.EnginePosition_Check);
+            this.checkEngine.CheckedChanged += new System.EventHandler(this.Engine_Check);
             // 
             // checkFuel
             // 
@@ -456,7 +456,7 @@
             this.checkEngineType.TabIndex = 32;
             this.checkEngineType.Text = "Include Engine Type";
             this.checkEngineType.UseVisualStyleBackColor = true;
-            this.checkEngineType.CheckedChanged += new System.EventHandler(this.Engine_Check);
+            this.checkEngineType.CheckedChanged += new System.EventHandler(this.EngineType_Check);
             // 
             // Form1
             // 
