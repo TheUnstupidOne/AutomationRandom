@@ -6,22 +6,50 @@ namespace AutomationRandom
         public Form1()
         {
             InitializeComponent();
+            Variables.minYear = Convert.ToInt32(Convert.ToDouble(numericYearMinimum.Value));
+            Variables.maxYear = Convert.ToInt32(Convert.ToDouble(numericYearMaximum.Value));
+            Variables.quantity = Convert.ToInt32(numericQuantity.Value);
+            Variables.displacementMode = Convert.ToInt32(trackBarDisplacement.Value);
+            textBox1.Text = Convert.ToString(Variables.displacementMode);
+            Variables.noCountries = checkCountries.Checked;
+            Variables.noUtility = checkUtility.Checked;
+            Variables.noEngine = checkEngine.Checked;
+            Variables.noTurbo = checkTurbo.Checked;
+            Variables.noBody = checkBody.Checked;
+            Variables.noEngineMaterials = checkEngineMaterials.Checked;
+            Variables.noIntake = checkIntake.Checked;
+            Variables.noFuel = checkFuel.Checked;
+            Variables.noGearbox = checkGearbox.Checked;
+            Variables.noLSD = checkDiff.Checked;
+            Variables.noEngineLayout = checkLayout.Checked;
+            Variables.noMarkets = checkMarkets.Checked;
+            Variables.noCountries = checkCountries.Checked;
+
         }
         private void folder_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Variables.folderpath = folderBrowserDialog1.SelectedPath;
-                textBox1.Text = Variables.folderpath + "\\AutomationIdeas.txt";
+                Variables.folderpath = saveFileDialog1.FileName;
+                Program.GenerateFile(Variables.quantity, Variables.folderpath);
             }
         }
         private void minYear_Click(object sender, EventArgs e)
         {
-            Variables.minYear = Convert.ToInt32(numericYearMinimum.Value);
+            Variables.minYear = Convert.ToInt32(Convert.ToDouble(numericYearMinimum.Value));
+            while (numericYearMinimum.Value > numericYearMaximum.Value)
+            {
+                numericYearMaximum.Value++;
+            }
+            
         }
         private void maxYear_Click(object sender, EventArgs e)
         {
-            Variables.maxYear = Convert.ToInt32(numericYearMaximum.Value);
+            Variables.maxYear = Convert.ToInt32(Convert.ToDouble(numericYearMaximum.Value));
+            while (numericYearMaximum.Value < numericYearMinimum.Value)
+            {
+                numericYearMinimum.Value--;
+            }
         }
         private void Quantity_Click(object sender, EventArgs e)
         {
@@ -30,10 +58,8 @@ namespace AutomationRandom
         private void Displacement_Click(object sender, EventArgs e)
         {
             Variables.displacementMode = Convert.ToInt32(trackBarDisplacement.Value);
-        }
-        private void Generate_Click(object sender, EventArgs e)
-        {
-            Program.GenerateFile(Variables.quantity);
+            Variables.noDisplacement = checkDisplacement.Checked;
+            textBox1.Text = Convert.ToString(Variables.displacementMode);
         }
         private void Utility_Check(object sender, EventArgs e)
         {
@@ -59,6 +85,31 @@ namespace AutomationRandom
         {
             Variables.noIntake = checkIntake.Checked;
         }
+        private void Fuel_Check(object sender, EventArgs e)
+        {
+            Variables.noFuel = checkFuel.Checked;
+        }
+        private void Gearbox_Check(object sender, EventArgs e)
+        {
+            Variables.noGearbox = checkGearbox.Checked;
+        }
+        private void LSD_Check(object sender, EventArgs e)
+        {
+            Variables.noLSD = checkDiff.Checked;
+        }
+        private void Layout_Check(object sender, EventArgs e)
+        {
+            Variables.noEngineLayout = checkLayout.Checked;
+        }
+        private void Markets_Check(object sender, EventArgs e)
+        {
+            Variables.noMarkets = checkMarkets.Checked;
+        }
+        private void Countries_Check(object sender, EventArgs e)
+        {
+            Variables.noCountries = checkCountries.Checked;
+        }
+
         public class Variables
         {
             static public string folderpath;
@@ -72,6 +123,23 @@ namespace AutomationRandom
             static public bool noBody;
             static public bool noEngineMaterials;
             static public bool noIntake;
+            static public int year;
+            static public bool noDisplacement;
+            static public bool noFuel;
+            static public bool noGearbox;
+            static public bool noLSD;
+            static public bool noEngineLayout;
+            static public bool noMarkets;
+            static public bool noCountries;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }
