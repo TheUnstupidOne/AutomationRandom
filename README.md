@@ -1,4 +1,6 @@
 # Automation Randomizer
+## IMPORTANT
+Requires .NET 6.0 Desktop!!!
 ## What is it?
 This is a simple user-friendly program that allows users to generate descriptions of their next builds in the Automation game by Camshaft Software.
 ## What for?
