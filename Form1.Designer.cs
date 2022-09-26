@@ -42,7 +42,7 @@
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.numericYearMinimum = new System.Windows.Forms.NumericUpDown();
             this.numericYearMaximum = new System.Windows.Forms.NumericUpDown();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBarDisplacement = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,9 +55,13 @@
             this.buttonLocation = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkEngineMaterials = new System.Windows.Forms.CheckBox();
+            this.checkIntake = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDisplacement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +69,7 @@
             // 
             this.checkTurbo.AutoSize = true;
             this.checkTurbo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkTurbo.Location = new System.Drawing.Point(258, 332);
+            this.checkTurbo.Location = new System.Drawing.Point(258, 323);
             this.checkTurbo.Name = "checkTurbo";
             this.checkTurbo.Size = new System.Drawing.Size(148, 24);
             this.checkTurbo.TabIndex = 0;
@@ -76,7 +80,7 @@
             // 
             this.checkEngine.AutoSize = true;
             this.checkEngine.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkEngine.Location = new System.Drawing.Point(255, 302);
+            this.checkEngine.Location = new System.Drawing.Point(255, 293);
             this.checkEngine.Name = "checkEngine";
             this.checkEngine.Size = new System.Drawing.Size(158, 24);
             this.checkEngine.TabIndex = 1;
@@ -87,7 +91,7 @@
             // 
             this.checkFuel.AutoSize = true;
             this.checkFuel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkFuel.Location = new System.Drawing.Point(258, 245);
+            this.checkFuel.Location = new System.Drawing.Point(255, 233);
             this.checkFuel.Name = "checkFuel";
             this.checkFuel.Size = new System.Drawing.Size(107, 24);
             this.checkFuel.TabIndex = 2;
@@ -120,7 +124,7 @@
             // 
             this.checkGearbox.AutoSize = true;
             this.checkGearbox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkGearbox.Location = new System.Drawing.Point(258, 215);
+            this.checkGearbox.Location = new System.Drawing.Point(255, 203);
             this.checkGearbox.Name = "checkGearbox";
             this.checkGearbox.Size = new System.Drawing.Size(136, 24);
             this.checkGearbox.TabIndex = 5;
@@ -131,7 +135,7 @@
             // 
             this.checkDiff.AutoSize = true;
             this.checkDiff.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkDiff.Location = new System.Drawing.Point(258, 185);
+            this.checkDiff.Location = new System.Drawing.Point(255, 173);
             this.checkDiff.Name = "checkDiff";
             this.checkDiff.Size = new System.Drawing.Size(155, 24);
             this.checkDiff.TabIndex = 6;
@@ -175,7 +179,7 @@
             // 
             this.checkDisplacement.AutoSize = true;
             this.checkDisplacement.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkDisplacement.Location = new System.Drawing.Point(258, 272);
+            this.checkDisplacement.Location = new System.Drawing.Point(255, 263);
             this.checkDisplacement.Name = "checkDisplacement";
             this.checkDisplacement.Size = new System.Drawing.Size(171, 24);
             this.checkDisplacement.TabIndex = 10;
@@ -238,13 +242,13 @@
             0,
             0});
             // 
-            // trackBar1
+            // trackBarDisplacement
             // 
-            this.trackBar1.Location = new System.Drawing.Point(258, 109);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(179, 45);
-            this.trackBar1.TabIndex = 14;
+            this.trackBarDisplacement.Location = new System.Drawing.Point(258, 109);
+            this.trackBarDisplacement.Maximum = 3;
+            this.trackBarDisplacement.Name = "trackBarDisplacement";
+            this.trackBarDisplacement.Size = new System.Drawing.Size(179, 45);
+            this.trackBarDisplacement.TabIndex = 14;
             // 
             // label1
             // 
@@ -272,7 +276,6 @@
             this.label3.Size = new System.Drawing.Size(36, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "Large";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -343,12 +346,14 @@
             // buttonLocation
             // 
             this.buttonLocation.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonLocation.Location = new System.Drawing.Point(12, 24);
+            this.buttonLocation.Location = new System.Drawing.Point(9, 24);
             this.buttonLocation.Name = "buttonLocation";
             this.buttonLocation.Size = new System.Drawing.Size(132, 33);
             this.buttonLocation.TabIndex = 24;
             this.buttonLocation.Text = "Location Select";
+            this.buttonLocation.UseCompatibleTextRendering = true;
             this.buttonLocation.UseVisualStyleBackColor = true;
+            this.buttonLocation.Click += new System.EventHandler(this.folder_Click);
             // 
             // textBox1
             // 
@@ -357,11 +362,57 @@
             this.textBox1.Size = new System.Drawing.Size(408, 23);
             this.textBox1.TabIndex = 25;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(9, 350);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(151, 24);
+            this.checkBox1.TabIndex = 26;
+            this.checkBox1.Text = "Use Real Countries";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 332);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(172, 15);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Temporarily unavailable feature";
+            // 
+            // checkEngineMaterials
+            // 
+            this.checkEngineMaterials.AutoSize = true;
+            this.checkEngineMaterials.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineMaterials.Location = new System.Drawing.Point(258, 350);
+            this.checkEngineMaterials.Name = "checkEngineMaterials";
+            this.checkEngineMaterials.Size = new System.Drawing.Size(190, 24);
+            this.checkEngineMaterials.TabIndex = 28;
+            this.checkEngineMaterials.Text = "Include Engine Materials";
+            this.checkEngineMaterials.UseVisualStyleBackColor = true;
+            // 
+            // checkIntake
+            // 
+            this.checkIntake.AutoSize = true;
+            this.checkIntake.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkIntake.Location = new System.Drawing.Point(258, 380);
+            this.checkIntake.Name = "checkIntake";
+            this.checkIntake.Size = new System.Drawing.Size(270, 24);
+            this.checkIntake.TabIndex = 29;
+            this.checkIntake.Text = "Include Engine Head Randomization";
+            this.checkIntake.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 386);
+            this.ClientSize = new System.Drawing.Size(626, 410);
+            this.Controls.Add(this.checkIntake);
+            this.Controls.Add(this.checkEngineMaterials);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonLocation);
             this.Controls.Add(this.label8);
@@ -373,7 +424,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.trackBarDisplacement);
             this.Controls.Add(this.numericYearMaximum);
             this.Controls.Add(this.numericYearMinimum);
             this.Controls.Add(this.buttonGenerate);
@@ -392,7 +443,7 @@
             this.Text = "Automation Car Idea Generator";
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDisplacement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -415,7 +466,7 @@
         private Button buttonGenerate;
         private NumericUpDown numericYearMinimum;
         private NumericUpDown numericYearMaximum;
-        private TrackBar trackBar1;
+        private TrackBar trackBarDisplacement;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -428,5 +479,9 @@
         private Button buttonLocation;
         private TextBox textBox1;
         private FolderBrowserDialog folderBrowserDialog1;
+        private CheckBox checkBox1;
+        private Label label9;
+        private CheckBox checkEngineMaterials;
+        private CheckBox checkIntake;
     }
 }
