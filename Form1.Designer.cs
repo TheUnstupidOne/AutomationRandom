@@ -57,7 +57,6 @@
             this.checkEngineMaterials = new System.Windows.Forms.CheckBox();
             this.checkIntake = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkLayout = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).BeginInit();
@@ -429,13 +428,6 @@
             this.saveFileDialog1.DefaultExt = "txt";
             this.saveFileDialog1.FileName = "AutomationIdeas";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(497, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 30;
-            // 
             // checkLayout
             // 
             this.checkLayout.AutoSize = true;
@@ -455,7 +447,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 410);
             this.Controls.Add(this.checkLayout);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkIntake);
             this.Controls.Add(this.checkEngineMaterials);
             this.Controls.Add(this.label9);
@@ -526,7 +517,6 @@
         private CheckBox checkEngineMaterials;
         private CheckBox checkIntake;
         private SaveFileDialog saveFileDialog1;
-        private TextBox textBox1;
         private CheckBox checkLayout;
     }
 }
