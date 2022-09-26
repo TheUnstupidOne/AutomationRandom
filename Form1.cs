@@ -10,7 +10,6 @@ namespace AutomationRandom
             Variables.maxYear = Convert.ToInt32(Convert.ToDouble(numericYearMaximum.Value));
             Variables.quantity = Convert.ToInt32(numericQuantity.Value);
             Variables.displacementMode = Convert.ToInt32(trackBarDisplacement.Value);
-            textBox1.Text = Convert.ToString(Variables.displacementMode);
             Variables.noCountries = checkCountries.Checked;
             Variables.noUtility = checkUtility.Checked;
             Variables.noEngine = checkEngine.Checked;
@@ -24,6 +23,7 @@ namespace AutomationRandom
             Variables.noEngineLayout = checkLayout.Checked;
             Variables.noMarkets = checkMarkets.Checked;
             Variables.noCountries = checkCountries.Checked;
+            Variables.noEngineType = checkEngineType.Checked;
 
         }
         private void folder_Click(object sender, EventArgs e)
@@ -59,7 +59,6 @@ namespace AutomationRandom
         {
             Variables.displacementMode = Convert.ToInt32(trackBarDisplacement.Value);
             Variables.noDisplacement = checkDisplacement.Checked;
-            textBox1.Text = Convert.ToString(Variables.displacementMode);
         }
         private void Utility_Check(object sender, EventArgs e)
         {
@@ -109,6 +108,10 @@ namespace AutomationRandom
         {
             Variables.noCountries = checkCountries.Checked;
         }
+        private void EnginePosition_Check(object sender, EventArgs e)
+        {
+            Variables.noEngineType = checkEngineType.Checked;
+        }
 
         public class Variables
         {
@@ -131,6 +134,7 @@ namespace AutomationRandom
             static public bool noEngineLayout;
             static public bool noMarkets;
             static public bool noCountries;
+            static public bool noEngineType;
         }
 
         private void label5_Click(object sender, EventArgs e)

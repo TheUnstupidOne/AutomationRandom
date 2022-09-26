@@ -51,7 +51,7 @@ namespace AutomationRandom
         {
             Random rd = new Random();
             Variables.year = rd.Next(Variables.minYear,Variables.maxYear);
-            string[] bodyMaterials = { "Steel", "TreatedSteel", "Fibre Glass", "Aluminium", "Partial Alu", "Carbon Fibre" };
+            string[] bodyMaterials = { "Steel", "Treated Steel", "Fibre Glass", "Aluminium", "Partial Alu", "Carbon Fibre" };
             string[] chassisMaterial = { "Steel", "Galvanized Steel", "Corrosion Resistant Steel", "AHS Steel", "Light AHS Steel", "Glued Aluminium", "Carbon Fibre" };
             string[] bodyType = { "Sedan", "Wagon", "Hatchback", "Coupe", "Convertible", "MPV", "SUV", "Utility/Pickup", "Van" };
             string[] enginePosition = { "Front Transverse", "Middle Transverse", "Back Transverse", "Front Longitudional", "Middle Longitudional", "Back Longitudional" };
@@ -96,9 +96,10 @@ namespace AutomationRandom
                 elements[1] = String.Empty;
                 elements[2] = String.Empty;
             }
-            elements[3] = " "+bodyType[rd.Next(0, bodyType.Length - 1)] + " with ";
+            elements[3] = " "+bodyType[rd.Next(0, bodyType.Length - 1)];
             if (Variables.noEngine)
             {
+                elements[3] += " with ";
                 elements[4] = enginePosition[rd.Next(0, enginePosition.Length - 1)] + " ";
                 if (Variables.noEngineMaterials)
                 {
@@ -152,44 +153,55 @@ namespace AutomationRandom
                 {
                     elements[9] = fuelType[rd.Next(0, fuelType.Length - 1)] + " powered ";
                 }
-                elements[11] = engineLayout[rd.Next(0, engineLayout.Length - 1)];
-                elements[12] = engineType[rd.Next(0, engineType.Length - 1)]+ " ";
-                if (elements[12].Contains("Inline"))
+                if (Variables.noEngineLayout)
                 {
-                    elements[13] = cylinderNumbers[0][rd.Next(0, cylinderNumbers[0].Length-1)];
-                    elements[14] = string.Empty;
-                    elements[15] = string.Empty;
+                    elements[11] = engineLayout[rd.Next(0, engineLayout.Length - 1)];
                 }
-                else if (elements[12].Contains("Boxer"))
+                else { elements[11] = string.Empty; }
+                if (Variables.noEngineType)
                 {
-                    elements[13] = cylinderNumbers[3][rd.Next(0, cylinderNumbers[3].Length - 1)];
-                    elements[14] = string.Empty;
-                    elements[15] = string.Empty;
-                }
-                else if (elements[12].Contains("V"))
-                {
-                    string temp = cylinderNumbers[5][rd.Next(0, 1)];
-                    elements[13] = elements[12];
-                    elements[12] = temp;
-                    if (temp == cylinderNumbers[5][0])
+                    elements[12] = engineType[rd.Next(0, engineType.Length - 1)] + " ";
+                    if (elements[12].Contains("Inline"))
                     {
-                        elements[14] = cylinderNumbers[2][rd.Next(0, cylinderNumbers[2].Length - 1)] + " ";
-                    }   
-                    else
+                        elements[13] = cylinderNumbers[0][rd.Next(0, cylinderNumbers[0].Length - 1)];
+                        elements[14] = string.Empty;
+                        elements[15] = string.Empty;
+                    }
+                    else if (elements[12].Contains("Boxer"))
                     {
-                        string temp2 = cylinderNumbers[4][rd.Next(0, 1)];
-                        elements[14] = elements[13];
-                        elements[13] = temp2;
-                        if (temp2 == cylinderNumbers[4][0])
+                        elements[13] = cylinderNumbers[3][rd.Next(0, cylinderNumbers[3].Length - 1)];
+                        elements[14] = string.Empty;
+                        elements[15] = string.Empty;
+                    }
+                    else if (elements[12].Contains("V"))
+                    {
+                        string temp = cylinderNumbers[5][rd.Next(0, 1)];
+                        elements[13] = elements[12];
+                        elements[12] = temp;
+                        if (temp == cylinderNumbers[5][0])
                         {
-                            
-                            elements[15] = "8 ";
+                            elements[14] = cylinderNumbers[2][rd.Next(0, cylinderNumbers[2].Length - 1)] + " ";
                         }
                         else
                         {
-                            elements[15] = cylinderNumbers[1][rd.Next(0, cylinderNumbers[1].Length - 1)] + " ";
+                            string temp2 = cylinderNumbers[4][rd.Next(0, 1)];
+                            elements[14] = elements[13];
+                            elements[13] = temp2;
+                            if (temp2 == cylinderNumbers[4][0])
+                            {
+
+                                elements[15] = "8 ";
+                            }
+                            else
+                            {
+                                elements[15] = cylinderNumbers[1][rd.Next(0, cylinderNumbers[1].Length - 1)] + " ";
+                            }
                         }
                     }
+                }
+                else
+                {
+                    elements[12] = " engine ";
                 }
             }
             else
@@ -207,15 +219,15 @@ namespace AutomationRandom
                 elements[14] = string.Empty;
                 elements[15] = string.Empty;
             }
-            elements[16] = " with " + drivetrainType[rd.Next(0, gearboxType.Length - 1)] +" drivetrain";
+            elements[16] = " with " + drivetrainType[rd.Next(0, drivetrainType.Length - 1)] +" drivetrain";
             if(Variables.noGearbox)
             {
-                elements[17] = ", " + gearboxType[rd.Next(0, gearboxType.Length - 1)];
+                elements[17] = ", " + gearboxType[rd.Next(0, gearboxType.Length - 1)] + " gearbox";
             }
             else { elements[17] = string.Empty; }
             if(Variables.noLSD)
             {
-                elements[18] = " and " + differentialType[rd.Next(0, differentialType.Length - 1)];
+                elements[18] = " and " + differentialType[rd.Next(0, differentialType.Length - 1)] +" differential ";
             }
             else { elements[18] = string.Empty; }
             elements[19] = " for ";
@@ -243,7 +255,7 @@ namespace AutomationRandom
             }
             string output = elements[0] + elements[1] + elements[2] + elements[3] + elements[4] + elements[5] + elements[6]
                 + elements[7] + elements[8] + elements[9] + elements[10] + elements[11] + elements[12]
-                + elements[13] + elements[14] + elements[15] + elements[16] + elements[17] + elements[18] + elements[18] + elements[19] + elements[20] ;     
+                + elements[13] + elements[14] + elements[15] + elements[16] + elements[17] + elements[18]  + elements[19] + elements[20] ;     
             return output;
         }
         static double GenerateDisplacement(int from, int to)

@@ -58,6 +58,7 @@
             this.checkIntake = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.checkLayout = new System.Windows.Forms.CheckBox();
+            this.checkEngineType = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDisplacement)).BeginInit();
@@ -86,11 +87,11 @@
             this.checkEngine.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.checkEngine.Location = new System.Drawing.Point(251, 233);
             this.checkEngine.Name = "checkEngine";
-            this.checkEngine.Size = new System.Drawing.Size(158, 24);
+            this.checkEngine.Size = new System.Drawing.Size(183, 24);
             this.checkEngine.TabIndex = 1;
-            this.checkEngine.Text = "Include Engine type";
+            this.checkEngine.Text = "Include Engine position";
             this.checkEngine.UseVisualStyleBackColor = true;
-            this.checkEngine.CheckedChanged += new System.EventHandler(this.Engine_Check);
+            this.checkEngine.CheckedChanged += new System.EventHandler(this.EnginePosition_Check);
             // 
             // checkFuel
             // 
@@ -154,6 +155,7 @@
             this.checkDiff.TabIndex = 6;
             this.checkDiff.Text = "Include Differential";
             this.checkDiff.UseVisualStyleBackColor = true;
+            this.checkDiff.CheckedChanged += new System.EventHandler(this.LSD_Check);
             // 
             // checkBody
             // 
@@ -173,7 +175,7 @@
             // 
             this.checkMarkets.AutoSize = true;
             this.checkMarkets.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkMarkets.Location = new System.Drawing.Point(9, 203);
+            this.checkMarkets.Location = new System.Drawing.Point(9, 170);
             this.checkMarkets.Name = "checkMarkets";
             this.checkMarkets.Size = new System.Drawing.Size(135, 24);
             this.checkMarkets.TabIndex = 8;
@@ -185,7 +187,7 @@
             // 
             this.checkCountries.AutoSize = true;
             this.checkCountries.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkCountries.Location = new System.Drawing.Point(9, 170);
+            this.checkCountries.Location = new System.Drawing.Point(9, 140);
             this.checkCountries.Name = "checkCountries";
             this.checkCountries.Size = new System.Drawing.Size(145, 24);
             this.checkCountries.TabIndex = 9;
@@ -440,12 +442,28 @@
             this.checkLayout.TabIndex = 31;
             this.checkLayout.Text = "Include Engine Layout";
             this.checkLayout.UseVisualStyleBackColor = true;
+            this.checkLayout.CheckedChanged += new System.EventHandler(this.Layout_Check);
+            // 
+            // checkEngineType
+            // 
+            this.checkEngineType.AutoSize = true;
+            this.checkEngineType.Checked = true;
+            this.checkEngineType.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineType.Location = new System.Drawing.Point(9, 263);
+            this.checkEngineType.Name = "checkEngineType";
+            this.checkEngineType.Size = new System.Drawing.Size(160, 24);
+            this.checkEngineType.TabIndex = 32;
+            this.checkEngineType.Text = "Include Engine Type";
+            this.checkEngineType.UseVisualStyleBackColor = true;
+            this.checkEngineType.CheckedChanged += new System.EventHandler(this.Engine_Check);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 410);
+            this.Controls.Add(this.checkEngineType);
             this.Controls.Add(this.checkLayout);
             this.Controls.Add(this.checkIntake);
             this.Controls.Add(this.checkEngineMaterials);
@@ -518,5 +536,6 @@
         private CheckBox checkIntake;
         private SaveFileDialog saveFileDialog1;
         private CheckBox checkLayout;
+        private CheckBox checkEngineType;
     }
 }
