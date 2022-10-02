@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkTurbo = new System.Windows.Forms.CheckBox();
-            this.checkEngine = new System.Windows.Forms.CheckBox();
-            this.checkFuel = new System.Windows.Forms.CheckBox();
+            this.checkEngineTurbo = new System.Windows.Forms.CheckBox();
+            this.checkEnginePosition = new System.Windows.Forms.CheckBox();
+            this.checkEngineFuel = new System.Windows.Forms.CheckBox();
             this.checkStupid = new System.Windows.Forms.CheckBox();
             this.checkUtility = new System.Windows.Forms.CheckBox();
-            this.checkGearbox = new System.Windows.Forms.CheckBox();
-            this.checkDiff = new System.Windows.Forms.CheckBox();
+            this.checkDrivetrainGearbox = new System.Windows.Forms.CheckBox();
+            this.checkDrivetrainDiff = new System.Windows.Forms.CheckBox();
             this.checkBody = new System.Windows.Forms.CheckBox();
             this.checkMarkets = new System.Windows.Forms.CheckBox();
             this.checkCountries = new System.Windows.Forms.CheckBox();
-            this.checkDisplacement = new System.Windows.Forms.CheckBox();
+            this.checkEngineDisplacement = new System.Windows.Forms.CheckBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.numericYearMinimum = new System.Windows.Forms.NumericUpDown();
             this.numericYearMaximum = new System.Windows.Forms.NumericUpDown();
@@ -52,60 +52,69 @@
             this.numericQuantity = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkCountriesReal = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.checkEngineMaterials = new System.Windows.Forms.CheckBox();
-            this.checkIntake = new System.Windows.Forms.CheckBox();
+            this.checkEngineIntake = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.checkLayout = new System.Windows.Forms.CheckBox();
+            this.checkEngineLayout = new System.Windows.Forms.CheckBox();
             this.checkEngineType = new System.Windows.Forms.CheckBox();
+            this.checkEngineGenerate = new System.Windows.Forms.CheckBox();
+            this.checkDrivetrainData = new System.Windows.Forms.CheckBox();
+            this.checkDrivetrainWheels = new System.Windows.Forms.CheckBox();
+            this.checkDrivetrainTyreCompound = new System.Windows.Forms.CheckBox();
+            this.checkBodyType = new System.Windows.Forms.CheckBox();
+            this.checkBodyChassisType = new System.Windows.Forms.CheckBox();
+            this.checkBodyMaterials = new System.Windows.Forms.CheckBox();
+            this.checkBodyChassisMaterials = new System.Windows.Forms.CheckBox();
+            this.checkBodySuspension = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDisplacement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkTurbo
+            // checkEngineTurbo
             // 
-            this.checkTurbo.AutoSize = true;
-            this.checkTurbo.Checked = true;
-            this.checkTurbo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkTurbo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkTurbo.Location = new System.Drawing.Point(251, 263);
-            this.checkTurbo.Name = "checkTurbo";
-            this.checkTurbo.Size = new System.Drawing.Size(148, 24);
-            this.checkTurbo.TabIndex = 0;
-            this.checkTurbo.Text = "Include Aspiration";
-            this.checkTurbo.UseVisualStyleBackColor = true;
-            this.checkTurbo.CheckedChanged += new System.EventHandler(this.Turbo_Check);
+            this.checkEngineTurbo.AutoSize = true;
+            this.checkEngineTurbo.Checked = true;
+            this.checkEngineTurbo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineTurbo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineTurbo.Location = new System.Drawing.Point(739, 233);
+            this.checkEngineTurbo.Name = "checkEngineTurbo";
+            this.checkEngineTurbo.Size = new System.Drawing.Size(148, 24);
+            this.checkEngineTurbo.TabIndex = 0;
+            this.checkEngineTurbo.Text = "Include Aspiration";
+            this.checkEngineTurbo.UseVisualStyleBackColor = true;
+            this.checkEngineTurbo.CheckedChanged += new System.EventHandler(this.EngineTurbo_Check);
             // 
-            // checkEngine
+            // checkEnginePosition
             // 
-            this.checkEngine.AutoSize = true;
-            this.checkEngine.Checked = true;
-            this.checkEngine.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkEngine.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkEngine.Location = new System.Drawing.Point(251, 233);
-            this.checkEngine.Name = "checkEngine";
-            this.checkEngine.Size = new System.Drawing.Size(183, 24);
-            this.checkEngine.TabIndex = 1;
-            this.checkEngine.Text = "Include Engine position";
-            this.checkEngine.UseVisualStyleBackColor = true;
-            this.checkEngine.CheckedChanged += new System.EventHandler(this.Engine_Check);
+            this.checkEnginePosition.AutoSize = true;
+            this.checkEnginePosition.Checked = true;
+            this.checkEnginePosition.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEnginePosition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEnginePosition.Location = new System.Drawing.Point(737, 140);
+            this.checkEnginePosition.Name = "checkEnginePosition";
+            this.checkEnginePosition.Size = new System.Drawing.Size(183, 24);
+            this.checkEnginePosition.TabIndex = 1;
+            this.checkEnginePosition.Text = "Include Engine position";
+            this.checkEnginePosition.UseVisualStyleBackColor = true;
+            this.checkEnginePosition.CheckedChanged += new System.EventHandler(this.EnginePosition_Check);
             // 
-            // checkFuel
+            // checkEngineFuel
             // 
-            this.checkFuel.AutoSize = true;
-            this.checkFuel.Checked = true;
-            this.checkFuel.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkFuel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkFuel.Location = new System.Drawing.Point(251, 170);
-            this.checkFuel.Name = "checkFuel";
-            this.checkFuel.Size = new System.Drawing.Size(107, 24);
-            this.checkFuel.TabIndex = 2;
-            this.checkFuel.Text = "Include Fuel";
-            this.checkFuel.UseVisualStyleBackColor = true;
-            this.checkFuel.CheckedChanged += new System.EventHandler(this.Fuel_Check);
+            this.checkEngineFuel.AutoSize = true;
+            this.checkEngineFuel.Checked = true;
+            this.checkEngineFuel.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineFuel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineFuel.Location = new System.Drawing.Point(739, 203);
+            this.checkEngineFuel.Name = "checkEngineFuel";
+            this.checkEngineFuel.Size = new System.Drawing.Size(107, 24);
+            this.checkEngineFuel.TabIndex = 2;
+            this.checkEngineFuel.Text = "Include Fuel";
+            this.checkEngineFuel.UseVisualStyleBackColor = true;
+            this.checkEngineFuel.CheckedChanged += new System.EventHandler(this.EngineFuel_Check);
             // 
             // checkStupid
             // 
@@ -117,6 +126,7 @@
             this.checkStupid.TabIndex = 3;
             this.checkStupid.Text = "Disable Stupid configs";
             this.checkStupid.UseVisualStyleBackColor = true;
+            this.checkStupid.CheckedChanged += new System.EventHandler(this.Stupid_Check);
             // 
             // checkUtility
             // 
@@ -128,48 +138,48 @@
             this.checkUtility.TabIndex = 4;
             this.checkUtility.Text = "Exclude Utility";
             this.checkUtility.UseVisualStyleBackColor = true;
+            this.checkUtility.CheckedChanged += new System.EventHandler(this.Utility_Check);
             // 
-            // checkGearbox
+            // checkDrivetrainGearbox
             // 
-            this.checkGearbox.AutoSize = true;
-            this.checkGearbox.Checked = true;
-            this.checkGearbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkGearbox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkGearbox.Location = new System.Drawing.Point(251, 140);
-            this.checkGearbox.Name = "checkGearbox";
-            this.checkGearbox.Size = new System.Drawing.Size(136, 24);
-            this.checkGearbox.TabIndex = 5;
-            this.checkGearbox.Text = "Include Gearbox";
-            this.checkGearbox.UseVisualStyleBackColor = true;
-            this.checkGearbox.CheckedChanged += new System.EventHandler(this.Gearbox_Check);
+            this.checkDrivetrainGearbox.AutoSize = true;
+            this.checkDrivetrainGearbox.Checked = true;
+            this.checkDrivetrainGearbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkDrivetrainGearbox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkDrivetrainGearbox.Location = new System.Drawing.Point(497, 200);
+            this.checkDrivetrainGearbox.Name = "checkDrivetrainGearbox";
+            this.checkDrivetrainGearbox.Size = new System.Drawing.Size(136, 24);
+            this.checkDrivetrainGearbox.TabIndex = 5;
+            this.checkDrivetrainGearbox.Text = "Include Gearbox";
+            this.checkDrivetrainGearbox.UseVisualStyleBackColor = true;
+            this.checkDrivetrainGearbox.CheckedChanged += new System.EventHandler(this.DrivetrainGearbox_Check);
             // 
-            // checkDiff
+            // checkDrivetrainDiff
             // 
-            this.checkDiff.AutoSize = true;
-            this.checkDiff.Checked = true;
-            this.checkDiff.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkDiff.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkDiff.Location = new System.Drawing.Point(251, 110);
-            this.checkDiff.Name = "checkDiff";
-            this.checkDiff.Size = new System.Drawing.Size(155, 24);
-            this.checkDiff.TabIndex = 6;
-            this.checkDiff.Text = "Include Differential";
-            this.checkDiff.UseVisualStyleBackColor = true;
-            this.checkDiff.CheckedChanged += new System.EventHandler(this.LSD_Check);
+            this.checkDrivetrainDiff.AutoSize = true;
+            this.checkDrivetrainDiff.Checked = true;
+            this.checkDrivetrainDiff.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkDrivetrainDiff.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkDrivetrainDiff.Location = new System.Drawing.Point(497, 170);
+            this.checkDrivetrainDiff.Name = "checkDrivetrainDiff";
+            this.checkDrivetrainDiff.Size = new System.Drawing.Size(155, 24);
+            this.checkDrivetrainDiff.TabIndex = 6;
+            this.checkDrivetrainDiff.Text = "Include Differential";
+            this.checkDrivetrainDiff.UseVisualStyleBackColor = true;
+            this.checkDrivetrainDiff.CheckedChanged += new System.EventHandler(this.DrivetrainDiff_Check);
             // 
             // checkBody
             // 
             this.checkBody.AutoSize = true;
-            this.checkBody.Checked = true;
-            this.checkBody.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBody.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBody.Location = new System.Drawing.Point(9, 233);
+            this.checkBody.Location = new System.Drawing.Point(255, 113);
             this.checkBody.Name = "checkBody";
-            this.checkBody.Size = new System.Drawing.Size(179, 24);
+            this.checkBody.Size = new System.Drawing.Size(162, 24);
             this.checkBody.TabIndex = 7;
-            this.checkBody.Text = "Include Body materials";
+            this.checkBody.Text = "Generate Body Data";
             this.checkBody.UseVisualStyleBackColor = true;
-            this.checkBody.CheckedChanged += new System.EventHandler(this.Body_Check);
+            this.checkBody.CheckedChanged += new System.EventHandler(this.BodyGeneration_Check);
+            this.checkBody.CheckStateChanged += new System.EventHandler(this.BodyGeneration_Check);
             // 
             // checkMarkets
             // 
@@ -195,25 +205,25 @@
             this.checkCountries.UseVisualStyleBackColor = true;
             this.checkCountries.CheckedChanged += new System.EventHandler(this.Countries_Check);
             // 
-            // checkDisplacement
+            // checkEngineDisplacement
             // 
-            this.checkDisplacement.AutoSize = true;
-            this.checkDisplacement.Checked = true;
-            this.checkDisplacement.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkDisplacement.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkDisplacement.Location = new System.Drawing.Point(251, 203);
-            this.checkDisplacement.Name = "checkDisplacement";
-            this.checkDisplacement.Size = new System.Drawing.Size(171, 24);
-            this.checkDisplacement.TabIndex = 10;
-            this.checkDisplacement.Text = "Include Displacement";
-            this.checkDisplacement.UseVisualStyleBackColor = true;
-            this.checkDisplacement.CheckedChanged += new System.EventHandler(this.Displacement_Click);
-            this.checkDisplacement.Click += new System.EventHandler(this.Displacement_Click);
+            this.checkEngineDisplacement.AutoSize = true;
+            this.checkEngineDisplacement.Checked = true;
+            this.checkEngineDisplacement.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineDisplacement.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineDisplacement.Location = new System.Drawing.Point(739, 173);
+            this.checkEngineDisplacement.Name = "checkEngineDisplacement";
+            this.checkEngineDisplacement.Size = new System.Drawing.Size(171, 24);
+            this.checkEngineDisplacement.TabIndex = 10;
+            this.checkEngineDisplacement.Text = "Include Displacement";
+            this.checkEngineDisplacement.UseVisualStyleBackColor = true;
+            this.checkEngineDisplacement.CheckedChanged += new System.EventHandler(this.EngineDisplacement_Click);
+            this.checkEngineDisplacement.Click += new System.EventHandler(this.EngineDisplacement_Click);
             // 
             // buttonGenerate
             // 
             this.buttonGenerate.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonGenerate.Location = new System.Drawing.Point(497, 363);
+            this.buttonGenerate.Location = new System.Drawing.Point(892, 383);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(117, 35);
             this.buttonGenerate.TabIndex = 11;
@@ -278,8 +288,8 @@
             this.trackBarDisplacement.Name = "trackBarDisplacement";
             this.trackBarDisplacement.Size = new System.Drawing.Size(179, 45);
             this.trackBarDisplacement.TabIndex = 14;
-            this.trackBarDisplacement.ValueChanged += new System.EventHandler(this.Displacement_Click);
-            this.trackBarDisplacement.MouseCaptureChanged += new System.EventHandler(this.Displacement_Click);
+            this.trackBarDisplacement.ValueChanged += new System.EventHandler(this.EngineDisplacement_Click);
+            this.trackBarDisplacement.MouseCaptureChanged += new System.EventHandler(this.EngineDisplacement_Click);
             // 
             // label1
             // 
@@ -326,7 +336,6 @@
             this.label5.Size = new System.Drawing.Size(104, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "Minimum Year";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -376,17 +385,18 @@
             this.label8.TabIndex = 23;
             this.label8.Text = "Idea quantity";
             // 
-            // checkBox1
+            // checkCountriesReal
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.Location = new System.Drawing.Point(9, 353);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(151, 24);
-            this.checkBox1.TabIndex = 26;
-            this.checkBox1.Text = "Use Real Countries";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkCountriesReal.AutoSize = true;
+            this.checkCountriesReal.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkCountriesReal.Location = new System.Drawing.Point(9, 353);
+            this.checkCountriesReal.Name = "checkCountriesReal";
+            this.checkCountriesReal.Size = new System.Drawing.Size(151, 24);
+            this.checkCountriesReal.TabIndex = 26;
+            this.checkCountriesReal.Text = "Use Real Countries";
+            this.checkCountriesReal.UseVisualStyleBackColor = true;
+            this.checkCountriesReal.CheckedChanged += new System.EventHandler(this.RealCountries_Check);
+            this.checkCountriesReal.CheckStateChanged += new System.EventHandler(this.RealCountries_Check);
             // 
             // label9
             // 
@@ -403,46 +413,47 @@
             this.checkEngineMaterials.Checked = true;
             this.checkEngineMaterials.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkEngineMaterials.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkEngineMaterials.Location = new System.Drawing.Point(251, 293);
+            this.checkEngineMaterials.Location = new System.Drawing.Point(739, 263);
             this.checkEngineMaterials.Name = "checkEngineMaterials";
             this.checkEngineMaterials.Size = new System.Drawing.Size(190, 24);
             this.checkEngineMaterials.TabIndex = 28;
             this.checkEngineMaterials.Text = "Include Engine Materials";
             this.checkEngineMaterials.UseVisualStyleBackColor = true;
             this.checkEngineMaterials.CheckedChanged += new System.EventHandler(this.EgineMaterial_Check);
+            this.checkEngineMaterials.CheckStateChanged += new System.EventHandler(this.EgineMaterial_Check);
             // 
-            // checkIntake
+            // checkEngineIntake
             // 
-            this.checkIntake.AutoSize = true;
-            this.checkIntake.Checked = true;
-            this.checkIntake.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkIntake.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkIntake.Location = new System.Drawing.Point(251, 323);
-            this.checkIntake.Name = "checkIntake";
-            this.checkIntake.Size = new System.Drawing.Size(270, 24);
-            this.checkIntake.TabIndex = 29;
-            this.checkIntake.Text = "Include Engine Head Randomization";
-            this.checkIntake.UseVisualStyleBackColor = true;
-            this.checkIntake.CheckedChanged += new System.EventHandler(this.Intake_Check);
+            this.checkEngineIntake.AutoSize = true;
+            this.checkEngineIntake.Checked = true;
+            this.checkEngineIntake.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineIntake.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineIntake.Location = new System.Drawing.Point(739, 293);
+            this.checkEngineIntake.Name = "checkEngineIntake";
+            this.checkEngineIntake.Size = new System.Drawing.Size(270, 24);
+            this.checkEngineIntake.TabIndex = 29;
+            this.checkEngineIntake.Text = "Include Engine Head Randomization";
+            this.checkEngineIntake.UseVisualStyleBackColor = true;
+            this.checkEngineIntake.CheckedChanged += new System.EventHandler(this.EngineIntake_Check);
             // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "txt";
             this.saveFileDialog1.FileName = "AutomationIdeas";
             // 
-            // checkLayout
+            // checkEngineLayout
             // 
-            this.checkLayout.AutoSize = true;
-            this.checkLayout.Checked = true;
-            this.checkLayout.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkLayout.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkLayout.Location = new System.Drawing.Point(251, 353);
-            this.checkLayout.Name = "checkLayout";
-            this.checkLayout.Size = new System.Drawing.Size(173, 24);
-            this.checkLayout.TabIndex = 31;
-            this.checkLayout.Text = "Include Engine Layout";
-            this.checkLayout.UseVisualStyleBackColor = true;
-            this.checkLayout.CheckedChanged += new System.EventHandler(this.Layout_Check);
+            this.checkEngineLayout.AutoSize = true;
+            this.checkEngineLayout.Checked = true;
+            this.checkEngineLayout.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkEngineLayout.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineLayout.Location = new System.Drawing.Point(737, 323);
+            this.checkEngineLayout.Name = "checkEngineLayout";
+            this.checkEngineLayout.Size = new System.Drawing.Size(173, 24);
+            this.checkEngineLayout.TabIndex = 31;
+            this.checkEngineLayout.Text = "Include Engine Layout";
+            this.checkEngineLayout.UseVisualStyleBackColor = true;
+            this.checkEngineLayout.CheckedChanged += new System.EventHandler(this.EngineLayout_Check);
             // 
             // checkEngineType
             // 
@@ -450,7 +461,7 @@
             this.checkEngineType.Checked = true;
             this.checkEngineType.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkEngineType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkEngineType.Location = new System.Drawing.Point(9, 263);
+            this.checkEngineType.Location = new System.Drawing.Point(737, 353);
             this.checkEngineType.Name = "checkEngineType";
             this.checkEngineType.Size = new System.Drawing.Size(160, 24);
             this.checkEngineType.TabIndex = 32;
@@ -458,17 +469,149 @@
             this.checkEngineType.UseVisualStyleBackColor = true;
             this.checkEngineType.CheckedChanged += new System.EventHandler(this.EngineType_Check);
             // 
+            // checkEngineGenerate
+            // 
+            this.checkEngineGenerate.AutoSize = true;
+            this.checkEngineGenerate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEngineGenerate.Location = new System.Drawing.Point(737, 113);
+            this.checkEngineGenerate.Name = "checkEngineGenerate";
+            this.checkEngineGenerate.Size = new System.Drawing.Size(173, 24);
+            this.checkEngineGenerate.TabIndex = 33;
+            this.checkEngineGenerate.Text = "Generate Engine Data";
+            this.checkEngineGenerate.UseVisualStyleBackColor = true;
+            this.checkEngineGenerate.CheckedChanged += new System.EventHandler(this.EngineGeneration_Check);
+            this.checkEngineGenerate.CheckStateChanged += new System.EventHandler(this.EngineGeneration_Check);
+            // 
+            // checkDrivetrainData
+            // 
+            this.checkDrivetrainData.AutoSize = true;
+            this.checkDrivetrainData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkDrivetrainData.Location = new System.Drawing.Point(497, 113);
+            this.checkDrivetrainData.Name = "checkDrivetrainData";
+            this.checkDrivetrainData.Size = new System.Drawing.Size(193, 24);
+            this.checkDrivetrainData.TabIndex = 34;
+            this.checkDrivetrainData.Text = "Generate Drivetrain Data";
+            this.checkDrivetrainData.UseVisualStyleBackColor = true;
+            this.checkDrivetrainData.CheckedChanged += new System.EventHandler(this.DrivetrainGeneration_Check);
+            this.checkDrivetrainData.CheckStateChanged += new System.EventHandler(this.DrivetrainGeneration_Check);
+            // 
+            // checkDrivetrainWheels
+            // 
+            this.checkDrivetrainWheels.AutoSize = true;
+            this.checkDrivetrainWheels.Checked = true;
+            this.checkDrivetrainWheels.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkDrivetrainWheels.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkDrivetrainWheels.Location = new System.Drawing.Point(497, 140);
+            this.checkDrivetrainWheels.Name = "checkDrivetrainWheels";
+            this.checkDrivetrainWheels.Size = new System.Drawing.Size(192, 24);
+            this.checkDrivetrainWheels.TabIndex = 35;
+            this.checkDrivetrainWheels.Text = "Generate Driving Wheels";
+            this.checkDrivetrainWheels.UseVisualStyleBackColor = true;
+            // 
+            // checkDrivetrainTyreCompound
+            // 
+            this.checkDrivetrainTyreCompound.AutoSize = true;
+            this.checkDrivetrainTyreCompound.Checked = true;
+            this.checkDrivetrainTyreCompound.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkDrivetrainTyreCompound.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkDrivetrainTyreCompound.Location = new System.Drawing.Point(497, 230);
+            this.checkDrivetrainTyreCompound.Name = "checkDrivetrainTyreCompound";
+            this.checkDrivetrainTyreCompound.Size = new System.Drawing.Size(197, 24);
+            this.checkDrivetrainTyreCompound.TabIndex = 36;
+            this.checkDrivetrainTyreCompound.Text = "Generate Tyre Compound";
+            this.checkDrivetrainTyreCompound.UseVisualStyleBackColor = true;
+            // 
+            // checkBodyType
+            // 
+            this.checkBodyType.AutoSize = true;
+            this.checkBodyType.Checked = true;
+            this.checkBodyType.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBodyType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBodyType.Location = new System.Drawing.Point(255, 145);
+            this.checkBodyType.Name = "checkBodyType";
+            this.checkBodyType.Size = new System.Drawing.Size(149, 24);
+            this.checkBodyType.TabIndex = 37;
+            this.checkBodyType.Text = "Include Body Type";
+            this.checkBodyType.UseVisualStyleBackColor = true;
+            this.checkBodyType.CheckedChanged += new System.EventHandler(this.BodyType_Check);
+            // 
+            // checkBodyChassisType
+            // 
+            this.checkBodyChassisType.AutoSize = true;
+            this.checkBodyChassisType.Checked = true;
+            this.checkBodyChassisType.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBodyChassisType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBodyChassisType.Location = new System.Drawing.Point(255, 178);
+            this.checkBodyChassisType.Name = "checkBodyChassisType";
+            this.checkBodyChassisType.Size = new System.Drawing.Size(162, 24);
+            this.checkBodyChassisType.TabIndex = 38;
+            this.checkBodyChassisType.Text = "Include Chassis Type";
+            this.checkBodyChassisType.UseVisualStyleBackColor = true;
+            this.checkBodyChassisType.CheckedChanged += new System.EventHandler(this.BodyChassisType_Check);
+            // 
+            // checkBodyMaterials
+            // 
+            this.checkBodyMaterials.AutoSize = true;
+            this.checkBodyMaterials.Checked = true;
+            this.checkBodyMaterials.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBodyMaterials.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBodyMaterials.Location = new System.Drawing.Point(255, 208);
+            this.checkBodyMaterials.Name = "checkBodyMaterials";
+            this.checkBodyMaterials.Size = new System.Drawing.Size(179, 24);
+            this.checkBodyMaterials.TabIndex = 39;
+            this.checkBodyMaterials.Text = "Include Body Materials";
+            this.checkBodyMaterials.UseVisualStyleBackColor = true;
+            this.checkBodyMaterials.CheckedChanged += new System.EventHandler(this.BodyMaterials_Check);
+            // 
+            // checkBodyChassisMaterials
+            // 
+            this.checkBodyChassisMaterials.AutoSize = true;
+            this.checkBodyChassisMaterials.Checked = true;
+            this.checkBodyChassisMaterials.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBodyChassisMaterials.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBodyChassisMaterials.Location = new System.Drawing.Point(255, 238);
+            this.checkBodyChassisMaterials.Name = "checkBodyChassisMaterials";
+            this.checkBodyChassisMaterials.Size = new System.Drawing.Size(192, 24);
+            this.checkBodyChassisMaterials.TabIndex = 40;
+            this.checkBodyChassisMaterials.Text = "Include Chassis Materials";
+            this.checkBodyChassisMaterials.UseVisualStyleBackColor = true;
+            this.checkBodyChassisMaterials.CheckedChanged += new System.EventHandler(this.BodyChassisMaterials_Check);
+            this.checkBodyChassisMaterials.CheckStateChanged += new System.EventHandler(this.BodyChassisMaterials_Check);
+            // 
+            // checkBodySuspension
+            // 
+            this.checkBodySuspension.AutoSize = true;
+            this.checkBodySuspension.Checked = true;
+            this.checkBodySuspension.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBodySuspension.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBodySuspension.Location = new System.Drawing.Point(255, 268);
+            this.checkBodySuspension.Name = "checkBodySuspension";
+            this.checkBodySuspension.Size = new System.Drawing.Size(154, 24);
+            this.checkBodySuspension.TabIndex = 41;
+            this.checkBodySuspension.Text = "Include Suspension";
+            this.checkBodySuspension.UseVisualStyleBackColor = true;
+            this.checkBodySuspension.CheckedChanged += new System.EventHandler(this.BodySuspension_Check);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 410);
+            this.ClientSize = new System.Drawing.Size(1021, 430);
+            this.Controls.Add(this.checkBodySuspension);
+            this.Controls.Add(this.checkBodyChassisMaterials);
+            this.Controls.Add(this.checkBodyMaterials);
+            this.Controls.Add(this.checkBodyChassisType);
+            this.Controls.Add(this.checkBodyType);
+            this.Controls.Add(this.checkDrivetrainTyreCompound);
+            this.Controls.Add(this.checkDrivetrainWheels);
+            this.Controls.Add(this.checkDrivetrainData);
+            this.Controls.Add(this.checkEngineGenerate);
             this.Controls.Add(this.checkEngineType);
-            this.Controls.Add(this.checkLayout);
-            this.Controls.Add(this.checkIntake);
+            this.Controls.Add(this.checkEngineLayout);
+            this.Controls.Add(this.checkEngineIntake);
             this.Controls.Add(this.checkEngineMaterials);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkCountriesReal);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.numericQuantity);
@@ -482,17 +625,17 @@
             this.Controls.Add(this.numericYearMaximum);
             this.Controls.Add(this.numericYearMinimum);
             this.Controls.Add(this.buttonGenerate);
-            this.Controls.Add(this.checkDisplacement);
+            this.Controls.Add(this.checkEngineDisplacement);
             this.Controls.Add(this.checkCountries);
             this.Controls.Add(this.checkMarkets);
             this.Controls.Add(this.checkBody);
-            this.Controls.Add(this.checkDiff);
-            this.Controls.Add(this.checkGearbox);
+            this.Controls.Add(this.checkDrivetrainDiff);
+            this.Controls.Add(this.checkDrivetrainGearbox);
             this.Controls.Add(this.checkUtility);
             this.Controls.Add(this.checkStupid);
-            this.Controls.Add(this.checkFuel);
-            this.Controls.Add(this.checkEngine);
-            this.Controls.Add(this.checkTurbo);
+            this.Controls.Add(this.checkEngineFuel);
+            this.Controls.Add(this.checkEnginePosition);
+            this.Controls.Add(this.checkEngineTurbo);
             this.Name = "Form1";
             this.Text = "Automation Car Idea Generator";
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).EndInit();
@@ -506,17 +649,17 @@
 
         #endregion
 
-        private CheckBox checkTurbo;
-        private CheckBox checkEngine;
-        private CheckBox checkFuel;
+        private CheckBox checkEngineTurbo;
+        private CheckBox checkEnginePosition;
+        private CheckBox checkEngineFuel;
         private CheckBox checkStupid;
         private CheckBox checkUtility;
-        private CheckBox checkGearbox;
-        private CheckBox checkDiff;
+        private CheckBox checkDrivetrainGearbox;
+        private CheckBox checkDrivetrainDiff;
         private CheckBox checkBody;
         private CheckBox checkMarkets;
         private CheckBox checkCountries;
-        private CheckBox checkDisplacement;
+        private CheckBox checkEngineDisplacement;
         private Button buttonGenerate;
         private NumericUpDown numericYearMinimum;
         private NumericUpDown numericYearMaximum;
@@ -530,12 +673,21 @@
         private NumericUpDown numericQuantity;
         private Label label7;
         private Label label8;
-        private CheckBox checkBox1;
+        private CheckBox checkCountriesReal;
         private Label label9;
         private CheckBox checkEngineMaterials;
-        private CheckBox checkIntake;
+        private CheckBox checkEngineIntake;
         private SaveFileDialog saveFileDialog1;
-        private CheckBox checkLayout;
+        private CheckBox checkEngineLayout;
         private CheckBox checkEngineType;
+        private CheckBox checkEngineGenerate;
+        private CheckBox checkDrivetrainData;
+        private CheckBox checkDrivetrainWheels;
+        private CheckBox checkDrivetrainTyreCompound;
+        private CheckBox checkBodyType;
+        private CheckBox checkBodyChassisType;
+        private CheckBox checkBodyMaterials;
+        private CheckBox checkBodyChassisMaterials;
+        private CheckBox checkBodySuspension;
     }
 }

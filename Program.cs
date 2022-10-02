@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using static AutomationRandom.Form1;
 
@@ -8,6 +11,7 @@ namespace AutomationRandom
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        public static Random rd = new Random();
         [STAThread]
         static void Main()
         {
@@ -49,230 +53,350 @@ namespace AutomationRandom
         }
         public static string CreateString()
         {
-            Random rd = new Random();
-            Variables.year = rd.Next(Variables.minYear,Variables.maxYear);
-            string[] bodyMaterials = { "Steel", "Treated Steel", "Fibre Glass", "Aluminium", "Partial Alu", "Carbon Fibre" };
-            string[] chassisMaterial = { "Steel", "Galvanized Steel", "Corrosion Resistant Steel", "AHS Steel", "Light AHS Steel", "Glued Aluminium", "Carbon Fibre" };
-            string[] bodyType = { "Sedan", "Wagon", "Hatchback", "Coupe", "Convertible", "MPV", "SUV", "Utility/Pickup", "Van" };
-            string[] enginePosition = { "Front Transverse", "Middle Transverse", "Back Transverse", "Front Longitudional", "Middle Longitudional", "Back Longitudional" };
-            string[] engineBlock = { "Cast Iron " , "Aluminium ", "AlSi ", "Magnesium " };
-            string[] engineTop = { "Cast Iron " , "Aluminium " , "AlSi " };
-            string[] intakeType = { "Push Rod ", "Direct Acting OHC ", "Single Overhead Cam ", "Dual Overhead Cam "  };
-            string[] engineTurbo = { "N/A ", "Single Turbo ", "Twin Turbo " };
-            string[] fuelType = { "Low Quality 85 RON Unleaded Gasoline", "Regular 91 RON Unleaded Gasoline", "Premium 95 RON Unleaded Gasoline", "Super 98 RON Unleaded Gasoline",
-                "Ultimate 100 RON Unleaded Gasoline", "Super 98 RON Leaded Gasoline", "Regular 92 RON Leaded Gasoline", "100 RON AvGas Leaded",
-                "Ethanol E10 92 RON", "Ethanol E70 106 RON", "Ethanol E85 108 RON", "Ethanol E100 129 RON",
-                "Compressed LPG 112RON", "Compressed LNG 150 RON", "Methanol 136 RON", "Nitromethane 136 RON"};
-            string[] engineType = { "Inline ", "V", "Boxer" };
-            string[] engineLayout = { "Oversquare", "Square", "Undersquare" };
-            string[] drivetrainType = { "FWD", "AWD", "4WD", "RWD" };
-            string[] gearboxType = { "Automatic", "Advanced Automatic", "Manual", "Dual Clutch", "Sequental", "Auto Manual" };
-            string[] differentialType = { "Open diff", "Manual Locker", "Automatic Locker", "Geared LSD", "Viscous LSD", "Electric LSD" };
-            string[] countryType = { "Dalluha (Saudi Arabia/Quatar/UAE)", "Archana (Iran/Pakistan/Indonesia)","Fruinia (France/Sweden/Italy)",
-                "Gasmea (North America)", "Hetvesia(Germany/Austria/Switzerland)" };
-            string[] marketType = {"Utility Budget", "Utility Sport", "Family Utility Budget", "Utility", "Utility Sport Premium", "Family Utility",
-                "Utility Premium", "Utility Sport Luxury", "Family Utility Premium", "Offroad Utility", "Heavy Utility", "Passanger Fleet",
-                "Light Delivery", "Delivery", "Heavy Delivery", "Offroad Budget ", "Commuter Budget", "Family Budget", "Fun Budget", "Light Sport Budget",
-                "Track Budget", "Convertible Sport Budget", "Convertiible Budget", "Premium Budget", "Offroad", "Commuter", "Family", "Fun", "Light Sport", "Track",
-                "Convertible Sport", "Convertible", "Premium", "Offroad Premium", "Commuter Premium", "Family Premium", "Fun Premium", "Light Sport Premium", "Track Premium",
-                "Convertible Sport Premium", "Convertible Premium", "Luxury", "City Budget", "City Eco", "Family Sport", "Pony Budget", "Muscle", "Sport Budget", "Super",
-                "Convertible Luxury", "Luxury Premium", "City", "City Premium", "Family Sport Premium", "Pony", "Muscle Premium", "Sport", "Hyper", "GT", "GT Premium"};
-            string[][] cylinderNumbers = new string[6][];
-            cylinderNumbers[0] = new string[]{ "3", "4", "5", "6" };
-            cylinderNumbers[1] = new string[] { "6", "10", "16" };
-            cylinderNumbers[2] = new string[] { "6", "8", "12" };
-            cylinderNumbers[3] = new string[] { "4", "6" };
-            cylinderNumbers[4] = new string[] { "Flatplane", "Crossplane" };
-            cylinderNumbers[5] = new string[] { " 60 degree ", " 90 degree " }; 
-            string[] elements = new string[21];
-            elements[0] = Convert.ToString(Variables.year);
-            if (Variables.noBody)
+            Variables.year = rd.Next(Variables.minYear, Variables.maxYear);
+            string output = string.Empty;
+            output += Convert.ToString(Variables.year) + " ";
+            if (Variables.generateBody)
             {
-                elements[1] = " " + bodyMaterials[rd.Next(0, bodyMaterials.Length - 1)] + " body on ";
-                elements[2] = chassisMaterial[rd.Next(0, chassisMaterial.Length - 1)] + " chassis";
+                output += GenerateBody() + " ";
             }
-            else
+            if (Variables.generateEngine)
             {
-                elements[1] = String.Empty;
-                elements[2] = String.Empty;
+                output += GenerateEngine() + " ";
             }
-            elements[3] = " "+bodyType[rd.Next(0, bodyType.Length - 1)];
-            if (Variables.noEngine)
+            if (Variables.generateDrivetrainData)
             {
-                elements[3] += " with ";
-                elements[4] = enginePosition[rd.Next(0, enginePosition.Length - 1)] + " ";
-                if (Variables.noEngineMaterials)
-                {
-                    elements[5] = engineBlock[rd.Next(0, engineBlock.Length - 1)] + " block and ";
-                    elements[7] = engineTop[rd.Next(0, engineTop.Length - 1)]+ " head ";
-                }
-                else
-                {
-                    elements[5] = string.Empty;
-                    elements[7] = string.Empty;
-                }
-                if (Variables.noIntake)
-                {
-                    elements[6] = intakeType[rd.Next(0, intakeType.Length - 1)];
-                    if (!Variables.noEngineMaterials)
-                    {
-                        elements[6] = elements[6]+ " head ";
-                    }
-                }
-                else
-                {
-                    elements[6] = string.Empty;
-                }
-                if (Variables.noTurbo)
-                {
-                    elements[8] = engineTurbo[rd.Next(0, engineTurbo.Length - 1)];
-                }
-                if (Variables.noDisplacement)
-                {
-                    switch(Variables.displacementMode)
-                    {
-                        case 0:
-                            elements[10] = Convert.ToString(Math.Round(GenerateDisplacement(0, 2),2 ))+" Liter";
-                            break;
-                        case 1:
-                            elements[10] = Convert.ToString(Math.Round(GenerateDisplacement(2, 4), 2)) + " Liter";
-                            break;
-                        case 2:
-                            elements[10] = Convert.ToString(Math.Round(GenerateDisplacement(5, 8), 2)) + " Liter";
-                            break;
-                        case 3:
-                            elements[10] = Convert.ToString(Math.Round(GenerateDisplacement(0, 21), 2)) + " Liter";
-                            break;
-                    }
-                }
-                else
-                {
-                    elements[10] = string.Empty;
-                }
-                if(Variables.noFuel)
-                {
-                    elements[9] = fuelType[rd.Next(0, fuelType.Length - 1)] + " powered ";
-                }
-                if (Variables.noEngineLayout)
-                {
-                    elements[11] = engineLayout[rd.Next(0, engineLayout.Length - 1)];
-                }
-                else { elements[11] = string.Empty; }
-                if (Variables.noEngineType)
-                {
-                    elements[12] = engineType[rd.Next(0, engineType.Length - 1)] + " ";
-                    if (elements[12].Contains("Inline"))
-                    {
-                        elements[13] = cylinderNumbers[0][rd.Next(0, cylinderNumbers[0].Length - 1)];
-                        elements[14] = string.Empty;
-                        elements[15] = string.Empty;
-                    }
-                    else if (elements[12].Contains("Boxer"))
-                    {
-                        elements[13] = cylinderNumbers[3][rd.Next(0, cylinderNumbers[3].Length - 1)];
-                        elements[14] = string.Empty;
-                        elements[15] = string.Empty;
-                    }
-                    else if (elements[12].Contains("V"))
-                    {
-                        string temp = cylinderNumbers[5][rd.Next(0, 1)];
-                        elements[13] = elements[12];
-                        elements[12] = temp;
-                        if (temp == cylinderNumbers[5][0])
-                        {
-                            elements[14] = cylinderNumbers[2][rd.Next(0, cylinderNumbers[2].Length - 1)] + " ";
-                        }
-                        else
-                        {
-                            string temp2 = cylinderNumbers[4][rd.Next(0, 1)];
-                            elements[14] = elements[13];
-                            elements[13] = temp2;
-                            if (temp2 == cylinderNumbers[4][0])
-                            {
-
-                                elements[15] = "8 ";
-                            }
-                            else
-                            {
-                                elements[15] = cylinderNumbers[1][rd.Next(0, cylinderNumbers[1].Length - 1)] + " ";
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    elements[12] = " engine ";
-                }
+                output += GenerateDrivetrain() + " ";
             }
-            else
+            if (!Variables.noCountries || !Variables.noMarkets)
             {
-                elements[4] = String.Empty;
-                elements[5] = string.Empty;
-                elements[6] = string.Empty;
-                elements[7] = string.Empty;
-                elements[8] = string.Empty;
-                elements[9] = string.Empty;
-                elements[10] = string.Empty;
-                elements[11] = string.Empty;
-                elements[12] = string.Empty;
-                elements[13] = string.Empty;
-                elements[14] = string.Empty;
-                elements[15] = string.Empty;
+                output += GenerateMiscInfo();
             }
-            elements[16] = " with " + drivetrainType[rd.Next(0, drivetrainType.Length - 1)] +" drivetrain";
-            if(Variables.noGearbox)
+            if (!Variables.generateBody
+                && !Variables.generateEngine
+                && !Variables.generateDrivetrainData
+                && Variables.noCountries
+                && Variables.noMarkets
+                )
             {
-                elements[17] = ", " + gearboxType[rd.Next(0, gearboxType.Length - 1)] + " gearbox";
+                output += GetRandomString(BodyData.bodyType);
             }
-            else { elements[17] = string.Empty; }
-            if(Variables.noLSD)
-            {
-                elements[18] = " and " + differentialType[rd.Next(0, differentialType.Length - 1)] +" differential ";
-            }
-            else { elements[18] = string.Empty; }
-            elements[19] = " for ";
-            if (Variables.noMarkets)
-            {
-            }
-            else
-            {
-                if (Variables.noUtility)
-                {
-                    elements[19] += marketType[rd.Next(15, marketType.Length - 1)] +" market";
-                }
-                else
-                {
-                    elements[19] += marketType[rd.Next(0, marketType.Length - 1)] +" market";
-                }
-                if (Variables.noCountries)
-                {
-                    elements[20] = string.Empty;
-                }
-                else
-                {
-                    elements[20] = " in "+countryType[rd.Next(0, countryType.Length - 1)];
-                }
-            }
-            string output = elements[0] + elements[1] + elements[2] + elements[3] + elements[4] + elements[5] + elements[6]
-                + elements[7] + elements[8] + elements[9] + elements[10] + elements[11] + elements[12]
-                + elements[13] + elements[14] + elements[15] + elements[16] + elements[17] + elements[18]  + elements[19] + elements[20] ;     
             return output;
         }
-        static double GenerateDisplacement(int from, int to)
+        static double GenerateDisplacementNumeric(int from, int to)
         {
             double displacement = 0;
-            Random rd = new Random();
             displacement = rd.Next(from, to) + rd.NextDouble();
-            if (displacement<0.236)
-                {
+            if (displacement < 0.236)
+            {
                 displacement = displacement + rd.NextDouble();
             }
             if (displacement > 21.715)
             {
                 displacement = 21.715;
             }
-            Math.Round(displacement, 2);
+            displacement = Math.Round(displacement, 2);
             return displacement;
         }
+        static string GenerateEngine()
+        {
+            string output = " with ";
+            string position = string.Empty;
+            string block = string.Empty; 
+            string valves = string.Empty;
+            string head = string.Empty;
+            string turbo = string.Empty;
+            string displacement = string.Empty;
+            string fuel = string.Empty;
+            string layout = string.Empty;
+
+            if (Variables.generateEnginePosition)
+            {
+                position = GetRandomString(EngineData.enginePosition) + " ";
+            }
+            if (Variables.generateEngineMaterials)
+            {
+                block = GetRandomString(EngineData.engineBlock) + " block and ";
+            }
+            if (Variables.generateEngineIntake)
+            {
+                valves = GetRandomString(EngineData.engineIntakeType);
+            }
+            if (Variables.generateEngineMaterials)
+            {
+                head += GetRandomString(EngineData.engineTop);
+            }
+            if (Variables.generateEngineMaterials || Variables.generateEngineIntake)
+            {
+                head += " head ";
+            }
+            if (Variables.generateEngineTurbo)
+            {
+                turbo = GetRandomString(EngineData.engineTurbo);
+            }
+            if (Variables.generateEngineDisplacement)
+            {
+                displacement = GenerateDisplacement();
+            }
+
+            if (Variables.generateEngineFuel)
+            {
+                fuel = GetRandomString(EngineData.engineFuelType) + " powered ";
+            }
+            if (Variables.generateEngineLayout)
+            {
+                layout = GetRandomString(EngineData.engineLayout) + " ";
+            }
+            if (Variables.generateEngineType)
+            {
+                string engineType = GetRandomString(EngineData.engineType) + " ";
+                if (engineType.Contains("Inline"))
+                {
+                    engineType += GetRandomString(EngineData.engineCylinderNumbers[0]);
+                }
+                else if (engineType.Contains("Boxer"))
+                {
+                    engineType += GetRandomString(EngineData.engineCylinderNumbers[3]);
+                }
+                else if (engineType.Contains("V"))
+                {
+                    string engineAngle = GetRandomString(EngineData.engineCylinderNumbers[5]);
+                    if (engineAngle == EngineData.engineCylinderNumbers[5][0])
+                    {
+                        engineType += GetRandomString(EngineData.engineCylinderNumbers[2]) + " ";
+                        engineType = engineAngle + engineType;
+                    }
+                    else
+                    {
+                        string crankType = GetRandomString(EngineData.engineCylinderNumbers[4]);
+                        if (crankType == EngineData.engineCylinderNumbers[4][0])
+                        {
+                            crankType += "8 ";
+
+                        }
+                        else
+                        {
+                            crankType += GetRandomString(EngineData.engineCylinderNumbers[1]) + " ";
+                        }
+                        engineType = engineAngle + crankType + engineType;
+                    }
+
+                }
+                output = position+ block +valves+head+turbo+fuel+displacement + layout+engineType;
+            }
+            else
+            {
+                output = " engine ";
+            }
+            return output;
+        }
+        static string GenerateDisplacement()
+        {
+            string output = string.Empty;
+            if(Variables.displacementMode==0)
+            {
+                output = Convert.ToString(GenerateDisplacementNumeric(0, 2)) + " Liter ";
+            }
+            if (Variables.displacementMode==1)
+            {
+                output = Convert.ToString(GenerateDisplacementNumeric(2, 4)) + " Liter ";
+            }
+            if (Variables.displacementMode == 2)
+            {
+                output = Convert.ToString(GenerateDisplacementNumeric(5, 8)) + " Liter ";
+            }
+            if (Variables.displacementMode == 3 && Variables.noStupid)
+            {
+                output = Convert.ToString(GenerateDisplacementNumeric(1, 8)) + " Liter ";
+            }
+            else if (Variables.displacementMode ==3 && !Variables.noStupid)
+            { 
+                output = Convert.ToString(GenerateDisplacementNumeric(0, 21)) + " Liter ";
+            }
+            return output;
+        }
+        static string GenerateDrivetrain()
+        {
+            string output = " with ";
+            if (Variables.generateDrivetrainWheels)
+            {
+                output += GetRandomString(DrivetrainData.drivetrainWheelsType) + " drivetrain ";
+            }
+            if (Variables.generateDrivetrainGearbox)
+            {
+                output += GetRandomString(DrivetrainData.drivetrainGearboxType) + " gearbox ";
+            }
+            if (Variables.generateDrivetrainDiff)
+            {
+                output += GetRandomString(DrivetrainData.drivetrainDiffType) + " differential ";
+            }
+            if (Variables.generateDrivetrainTyreCompound)
+            {
+                output += GetRandomString(DrivetrainData.drivetrainTyreCompound) + " tyres ";
+            }
+            if (Variables.noUtility &&
+                (output.Contains(DrivetrainData.drivetrainWheelsType[2])
+                || output.Contains(DrivetrainData.drivetrainDiffType[1])
+                || output.Contains(DrivetrainData.drivetrainDiffType[2])
+                ))
+            {
+                output = GenerateDrivetrain();
+            }
+            return output;
+        }
+        static string GenerateBody()
+        {
+            string output = string.Empty;
+            string bodyMaterials = string.Empty;
+            string bodyChassisMaterials = string.Empty;
+            string bodyChassisType = string.Empty;
+            string bodyType = string.Empty;
+            string suspensionFront = string.Empty;
+            string suspensionRear = string.Empty;
+            if (Variables.generateBodyMaterials)
+            {
+                bodyMaterials = GetRandomString(BodyData.bodyMaterials) + " body ";
+                
+            }
+            if (Variables.generateBodyChassisMaterials || Variables.generateBodyChassisType)
+            {
+                bodyMaterials = bodyMaterials+ "on ";
+            }
+            if (Variables.generateBodyChassisMaterials)
+            {
+                bodyChassisMaterials = GetRandomString(BodyData.bodyChassisMaterial) + " ";
+            }
+            if (Variables.generateBodyChassisType)
+            {
+                bodyChassisType = GetRandomString(BodyData.bodyChassisType);
+            }
+            if (Variables.generateBodyChassisMaterials || Variables.generateBodyChassisType)
+            {
+                bodyChassisType = bodyChassisType + " chassis ";
+            }
+            else if (Variables.generateBodyMaterials)
+            {
+                bodyMaterials.Replace(" body", "-bodied");
+            }
+            if (Variables.generateBodyType)
+            {
+                bodyType += GetRandomString(BodyData.bodyType);
+            }
+            if (Variables.generateBodySuspension)
+            {
+                suspensionFront += " with " + GetRandomString(BodyData.bodyFrontSuspensionType) + " in front ";
+                suspensionRear += "and " + GetRandomString(BodyData.bodyRearSuspensionType) + " in the back";
+            }
+            if (Variables.noUtility &&
+                (suspensionFront.Contains(BodyData.bodyFrontSuspensionType[0])
+                || suspensionFront.Contains(BodyData.bodyFrontSuspensionType[1])
+                || suspensionRear.Contains(BodyData.bodyRearSuspensionType[0])
+                || suspensionRear.Contains(BodyData.bodyRearSuspensionType[1])
+                || suspensionRear.Contains(BodyData.bodyRearSuspensionType[3])
+                || bodyType.Contains(BodyData.bodyType[6])
+                || bodyType.Contains(BodyData.bodyType[7])
+                || bodyType.Contains(BodyData.bodyType[8])))
+            {
+                output = GenerateBody();
+            }
+            else
+            {
+                output = bodyMaterials + bodyChassisMaterials + bodyChassisType + bodyType + suspensionFront + suspensionRear;
+            }
+            return output;
+        }
+        static string GenerateMiscInfo()
+        {
+            string output = string.Empty;
+            if (!Variables.noMarkets && Variables.noUtility)
+            {
+                output += GetRandomString(MiscData.marketTypeNoUtility);
+            }
+            else if (!Variables.noMarkets && !Variables.noUtility)
+            {
+                output += GetRandomString(MiscData.marketType);
+            }
+            else
+            {
+                output += " for any market";
+            }
+            if (!Variables.noCountries && Variables.generateRealCountries)
+            {
+                output += " in " + GetRandomString(MiscData.countryTypeReal);
+            }
+            else if (!Variables.noCountries && !Variables.generateRealCountries)
+            {
+                output += " in " + GetRandomString(MiscData.countryType);
+            }
+            else
+            {
+                output += " in any country";
+            }
+            return output;
+        }
+        static string GetRandomString(string[] input)
+        {
+            string output = input[rd.Next(0, input.Length - 1)];
+            return output;
+        }
+    }
+    public static class EngineData
+    {
+        public static string[][] engineCylinderNumbers = new string[][]
+        {
+        new string[] { "3", "4", "5", "6" },
+        new string[] { "6", "10", "16" },
+        new string[] { "6", "8", "12" },
+        new string[] { "4", "6" },
+        new string[] { "Flatplane ", "Crossplane " },
+        new string[] { " 60 degree ", " 90 degree " }
+        };
+        public static string[] enginePosition = { "Front Transverse", "Middle Transverse", "Back Transverse", "Front Longitudional", "Middle Longitudional", "Back Longitudional" };
+        public static string[] engineBlock = { "Cast Iron ", "Aluminium ", "AlSi ", "Magnesium " };
+        public static string[] engineTop = { "Cast Iron ", "Aluminium ", "AlSi " };
+        public static string[] engineIntakeType = { "Push Rod ", "Direct Acting OHC ", "Single Overhead Cam ", "Dual Overhead Cam " };
+        public static string[] engineTurbo = { "N/A ", "Single Turbo ", "Twin Turbo " };
+        public static string[] engineFuelType = { "Low Quality 85 RON Unleaded Gasoline", "Regular 91 RON Unleaded Gasoline", "Premium 95 RON Unleaded Gasoline", "Super 98 RON Unleaded Gasoline",
+                "Ultimate 100 RON Unleaded Gasoline", "Super 98 RON Leaded Gasoline", "Regular 92 RON Leaded Gasoline", "100 RON AvGas Leaded",
+                "Ethanol E10 92 RON", "Ethanol E70 106 RON", "Ethanol E85 108 RON", "Ethanol E100 129 RON",
+                "Compressed LPG 112RON", "Compressed LNG 150 RON", "Methanol 136 RON", "Nitromethane 136 RON"};
+        public static string[] engineType = { "Inline ", "V", "Boxer" };
+        public static string[] engineLayout = { "Oversquare", "Square", "Undersquare" };
+    }
+    public static class DrivetrainData
+    {
+        public static string[] drivetrainWheelsType = { "FWD", "AWD", "4WD", "RWD" };
+        public static string[] drivetrainGearboxType = { "Automatic", "Advanced Automatic", "Manual", "Dual Clutch", "Sequental", "Auto Manual" };
+        public static string[] drivetrainDiffType = { "Open diff", "Manual Locker", "Automatic Locker", "Geared LSD", "Viscous LSD", "Electric LSD" };
+        public static string[] drivetrainTyreCompound = { "Chunky offroad", "Allterrain", "Utility", "Hard long life", "Medium Compound", "Sports Compound", "Semi-Slicks" };
+    }
+    public static class BodyData
+    {
+        public static string[] bodyChassisMaterial = { "Steel", "Galvanized Steel", "Corrosion Resistant Steel", "AHS Steel", "Light AHS Steel", "Glued Aluminium", "Carbon Fibre" };
+        public static string[] bodyType = { "Sedan", "Wagon", "Hatchback", "Coupe", "Convertible", "MPV", "SUV", "Utility/Pickup", "Van" };
+        public static string[] bodyMaterials = { "Steel", "Treated Steel", "Fibre Glass", "Aluminium", "Partial Alu", "Carbon Fibre" };
+        public static string[] bodyChassisType = { "Ladder", "Monocoque", "Space frame", "Semi-space frame", "Light truck monocoque" };
+        public static string[] bodyFrontSuspensionType = { "Solid Axle Coil", "Solid Axle Leaf", "Double Wishbone", "MacPherson Strut", "Pushrod" };
+        public static string[] bodyRearSuspensionType = { "Solid Axle Coil", "Solid Axle Leaf", "Semi-trailing arm", "Torsion beam", "Double Wishbone", "MacPherson Strut", "Multilink", "Pushrod" };
+    }
+    public static class MiscData
+    {
+        public static string[] countryType = { "Dalluha (Saudi Arabia/Quatar/UAE)", "Archana (Iran/Pakistan/Indonesia)","Fruinia (France/Sweden/Italy)",
+                "Gasmea (North America)", "Hetvesia(Germany/Austria/Switzerland)" };
+        public static string[] marketType = {"Utility Budget", "Utility Sport", "Family Utility Budget", "Utility", "Utility Sport Premium", "Family Utility",
+                "Utility Premium", "Utility Sport Luxury", "Family Utility Premium", "Offroad Utility", "Heavy Utility", "Passanger Fleet",
+                "Light Delivery", "Delivery", "Heavy Delivery", "Offroad Budget ", "Commuter Budget", "Family Budget", "Fun Budget", "Light Sport Budget",
+                "Track Budget", "Convertible Sport Budget", "Convertiible Budget", "Premium Budget", "Offroad", "Commuter", "Family", "Fun", "Light Sport", "Track",
+                "Convertible Sport", "Convertible", "Premium", "Offroad Premium", "Commuter Premium", "Family Premium", "Fun Premium", "Light Sport Premium", "Track Premium",
+                "Convertible Sport Premium", "Convertible Premium", "Luxury", "City Budget", "City Eco", "Family Sport", "Pony Budget", "Muscle", "Sport Budget", "Super",
+                "Convertible Luxury", "Luxury Premium", "City", "City Premium", "Family Sport Premium", "Pony", "Muscle Premium", "Sport", "Hyper", "GT", "GT Premium"};
+        public static string[] marketTypeNoUtility = {"Commuter Budget", "Family Budget", "Fun Budget", "Light Sport Budget",
+                "Track Budget", "Convertible Sport Budget", "Convertiible Budget", "Premium Budget", "Commuter", "Family", "Fun", "Light Sport", "Track",
+                "Convertible Sport", "Convertible", "Premium", "Commuter Premium", "Family Premium", "Fun Premium", "Light Sport Premium", "Track Premium",
+                "Convertible Sport Premium", "Convertible Premium", "Luxury", "City Budget", "City Eco", "Family Sport", "Pony Budget", "Muscle", "Sport Budget", "Super",
+                "Convertible Luxury", "Luxury Premium", "City", "City Premium", "Family Sport Premium", "Pony", "Muscle Premium", "Sport", "Hyper", "GT", "GT Premium"};
+        public static string[] countryTypeReal = {"Australia", "Great Britain", "Gernamy", "France", "Italy",
+            "Yugoslavia", "Poland", "Soviet Union", "China", "South Korea", "Japan",
+            "United States", "Sweden", "Indonesia", "India"};
     }
 }
