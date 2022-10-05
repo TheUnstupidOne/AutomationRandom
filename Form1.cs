@@ -28,7 +28,7 @@ namespace AutomationRandom
             Variables.noUtility = checkUtility.Checked;
             Variables.noMarkets = checkMarkets.Checked;
             Variables.noCountries = checkCountries.Checked;
-            
+
 
 
         }
@@ -227,52 +227,44 @@ namespace AutomationRandom
         {
             Variables.generateRealCountries = checkCountriesReal.Checked;
         }
-
-    }
-    public class Variables
-    {
-        static public string folderpath;
-        static public int minYear;
-        static public int maxYear;
-        static public int quantity;
-
-        static public bool noUtility;
-
+        private void InspirationMode_Check(object sender, EventArgs e)
+        {
+            Variables.doInspirationMode = checkInspirationMode.Checked;
+            if (Variables.doInspirationMode)
+            {
+                trackBarDisplacement.Enabled = false;
+                checkBody.Checked = false;
+                checkBody.Enabled = false;
+                checkEngineGenerate.Checked = false;
+                checkEngineGenerate.Enabled = false;
+                checkDrivetrainData.Checked = false;
+                checkDrivetrainData.Enabled = false;
+                checkMarkets.Checked = false;
+                checkMarkets.Enabled = false;
+                checkCountries.Checked = false;
+                checkCountries.Enabled = false;
+                checkCountriesReal.Checked = true;
+                checkCountriesReal.Enabled = false;
+                trackBarDisplacement.Enabled = false;
+            }
+            else if (!Variables.doInspirationMode)
+            {
+                trackBarDisplacement.Enabled = true;
+                checkBody.Checked = true;
+                checkBody.Enabled = true;
+                checkEngineGenerate.Checked = true;
+                checkEngineGenerate.Enabled = true;
+                checkDrivetrainData.Checked = true;
+                checkDrivetrainData.Enabled = true;
+                checkMarkets.Checked = true;
+                checkMarkets.Enabled = true;
+                checkCountries.Checked = true;
+                checkCountries.Enabled = true;
+                checkCountriesReal.Checked = false;
+                checkCountriesReal.Enabled = true;
+            }
+        }
         
-
-        static public int year;
-
-
-
-        static public bool noMarkets;
-        static public bool noCountries;
-        static public bool generateRealCountries;
-
-        static public bool noStupid;
-        //emgine stuff (finished)
-        static public bool generateEngineType;
-        static public bool generateEngine;
-        static public bool generateEngineLayout;
-        static public bool generateEngineDisplacement;
-        static public bool generateEngineFuel;
-        static public bool generateEngineMaterials;
-        static public bool generateEngineIntake;
-        static public bool generateEnginePosition;
-        static public bool generateEngineTurbo;
-        static public int displacementMode;
-        //drivetrain stuff (finished for now)
-        static public bool generateDrivetrainData;
-        static public bool generateDrivetrainGearbox;
-        static public bool generateDrivetrainDiff;
-        static public bool generateDrivetrainTyreCompound;
-        static public bool generateDrivetrainWheels;
-        //body stuff
-        static public bool generateBody;
-        static public bool generateBodyMaterials;
-        static public bool generateBodyChassisType;
-        static public bool generateBodyChassisMaterials;
-        static public bool generateBodyType;
-        static public bool generateBodySuspension;
     }
 }
     

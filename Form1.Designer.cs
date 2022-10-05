@@ -68,6 +68,7 @@
             this.checkBodyMaterials = new System.Windows.Forms.CheckBox();
             this.checkBodyChassisMaterials = new System.Windows.Forms.CheckBox();
             this.checkBodySuspension = new System.Windows.Forms.CheckBox();
+            this.checkInspirationMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYearMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDisplacement)).BeginInit();
@@ -132,7 +133,7 @@
             // 
             this.checkUtility.AutoSize = true;
             this.checkUtility.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkUtility.Location = new System.Drawing.Point(9, 110);
+            this.checkUtility.Location = new System.Drawing.Point(12, 145);
             this.checkUtility.Name = "checkUtility";
             this.checkUtility.Size = new System.Drawing.Size(122, 24);
             this.checkUtility.TabIndex = 4;
@@ -185,7 +186,7 @@
             // 
             this.checkMarkets.AutoSize = true;
             this.checkMarkets.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkMarkets.Location = new System.Drawing.Point(9, 170);
+            this.checkMarkets.Location = new System.Drawing.Point(9, 208);
             this.checkMarkets.Name = "checkMarkets";
             this.checkMarkets.Size = new System.Drawing.Size(135, 24);
             this.checkMarkets.TabIndex = 8;
@@ -197,7 +198,7 @@
             // 
             this.checkCountries.AutoSize = true;
             this.checkCountries.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkCountries.Location = new System.Drawing.Point(9, 140);
+            this.checkCountries.Location = new System.Drawing.Point(9, 178);
             this.checkCountries.Name = "checkCountries";
             this.checkCountries.Size = new System.Drawing.Size(145, 24);
             this.checkCountries.TabIndex = 9;
@@ -592,11 +593,25 @@
             this.checkBodySuspension.UseVisualStyleBackColor = true;
             this.checkBodySuspension.CheckedChanged += new System.EventHandler(this.BodySuspension_Check);
             // 
+            // checkInspirationMode
+            // 
+            this.checkInspirationMode.AutoSize = true;
+            this.checkInspirationMode.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkInspirationMode.Location = new System.Drawing.Point(12, 108);
+            this.checkInspirationMode.Name = "checkInspirationMode";
+            this.checkInspirationMode.Size = new System.Drawing.Size(174, 29);
+            this.checkInspirationMode.TabIndex = 42;
+            this.checkInspirationMode.Text = "Inspiration mode";
+            this.checkInspirationMode.UseVisualStyleBackColor = true;
+            this.checkInspirationMode.CheckedChanged += new System.EventHandler(this.InspirationMode_Check);
+            this.checkInspirationMode.CheckStateChanged += new System.EventHandler(this.InspirationMode_Check);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 430);
+            this.Controls.Add(this.checkInspirationMode);
             this.Controls.Add(this.checkBodySuspension);
             this.Controls.Add(this.checkBodyChassisMaterials);
             this.Controls.Add(this.checkBodyMaterials);
@@ -689,5 +704,6 @@
         private CheckBox checkBodyMaterials;
         private CheckBox checkBodyChassisMaterials;
         private CheckBox checkBodySuspension;
+        private CheckBox checkInspirationMode;
     }
 }
